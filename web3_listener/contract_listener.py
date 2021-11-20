@@ -26,7 +26,7 @@ class Web3ContractListener:
 
     def handle_event(self, event):
         print(f"processing transaction {Web3.toJSON(event)}")
-        print(f"here we will send a request to the backend to process the txn")
+        # todo here we will send an async request to the backend to process the tx with the code doing the mint stuff.
 
     async def log_loop(self, event_filter, poll_interval):
         while True:
@@ -37,4 +37,4 @@ class Web3ContractListener:
 
     def listen(self):
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(self.log_loop(self.event_filter, 10))
+        loop.run_until_complete(self.log_loop(self.event_filter, 2))
