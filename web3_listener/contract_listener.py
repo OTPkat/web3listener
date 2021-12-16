@@ -40,4 +40,4 @@ class Web3ContractListener:
 
     def listen(self):
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(self.log_loop(self.event_filter, 2))
+        loop.run_until_complete(self.log_loop(self.event_filter, 12))

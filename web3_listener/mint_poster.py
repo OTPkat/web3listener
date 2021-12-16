@@ -5,11 +5,11 @@ import dataclasses
 
 from pydantic import BaseModel
 from typing import Optional
+import json
 
 
 class ArchiveMint(BaseModel):
     token_id: int
-    block_number: int
     method: str
     hash: Optional[str]
 
@@ -29,6 +29,16 @@ class MintPoster:
             f"Authorization": f"Bearer {token}",
         }
         response = requests.post(
-            f"{self.url}/archive_mint/", headers=headers, params=archive_mint.dict()
+            f"{self.url}/archive_mint/", headers=headers, data=json.dumps(archive_mint.dict()).encode('utf-8')
         )
         return response
+
+
+# if __name__ == '__main__':
+#     import os
+#     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../gcp-creds.json"
+#     print(MintPoster().send_archive_mint(ArchiveMint(**{
+#         "hash": "0xTopkkekw",
+#         "method": "publicMint",
+#         "token_id": 12
+#     })))
