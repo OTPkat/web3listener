@@ -33,12 +33,23 @@ class MintPoster:
         )
         return response
 
+    def get_mints(self):
+        token = self.get_bearer_token()
+        headers = {
+            f"Authorization": f"Bearer {token}",
+        }
+        response = requests.get(
+            f"{self.url}/archive_nfts/", headers=headers
+        )
+        return response
 
-# if __name__ == '__main__':
-#     import os
-#     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../gcp-creds.json"
-#     print(MintPoster().send_archive_mint(ArchiveMint(**{
-#         "hash": "0xTopkkekw",
-#         "method": "publicMint",
-#         "token_id": 12
-#     })))
+
+if __name__ == '__main__':
+    import os
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "../gcp-creds.json"
+    # print(MintPoster().send_archive_mint(ArchiveMint(**{
+    #     "hash": "0xTopkkekw",
+    #     "method": "publicMint",
+    #     "token_id": 12
+    # })))
+    # print(MintPoster().get_mints().json())

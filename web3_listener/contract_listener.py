@@ -3,6 +3,7 @@ import asyncio
 import dataclasses
 from etherscan import Etherscan
 from web3_listener.mint_poster import ArchiveMint, MintPoster
+import pdb
 
 
 @dataclasses.dataclass
@@ -27,8 +28,12 @@ class Web3ContractListener:
 
     @staticmethod
     def send_mint_event(event):
-        print(f"processing transaction {Web3.toJSON(event)}")
-        archive_mint = ArchiveMint(**event)
+        event_mint = {
+            "token_id": event.args._tokenId,
+            "method": event.args._method,
+            "hash": event.args._hash
+        }
+        archive_mint = ArchiveMint(**event_mint)
         MintPoster().send_archive_mint(archive_mint=archive_mint)
 
     async def log_loop(self, event_filter, poll_interval):

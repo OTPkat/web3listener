@@ -5,11 +5,13 @@ import os
 
 if __name__ == "__main__":
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "gcp-creds.json"
-    ETH_URL = get_secrets_from_string(os.environ["SECRET_INFURA"])
+    ETH_URL = get_secrets_from_string("projects/148433842428/secrets/infura-listener/versions/1")
+    # ETH_URL = get_secrets_from_string(os.environ["SECRET_INFURA"])
     # ETH_URL = f"https://mainnet.infura.io/v3/{ETH_URL}"
     ETH_URL = f"https://rinkeby.infura.io/v3/{ETH_URL}"
-    ETHERSCAN_TOKEN = get_secrets_from_string(os.environ["SECRET_ETHERSCAN"])
-    contract_address = "0x6275418F8f8b70689b59143D214c3EC0cFfcAbA5"
+    ETHERSCAN_TOKEN = get_secrets_from_string("projects/148433842428/secrets/etherscan-listener/versions/1")
+    #ETHERSCAN_TOKEN = get_secrets_from_string(os.environ["SECRET_ETHERSCAN"])
+    contract_address = "0x33360d4FFe455fcBeab2664a95165EF6B4792103"
     contract_listener = Web3ContractListener(
         eth_url=ETH_URL,
         contract_address=contract_address,
