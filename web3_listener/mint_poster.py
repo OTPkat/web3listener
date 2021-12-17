@@ -52,3 +52,33 @@ class MintPoster:
             f"{self.url}/clear_nfts/", headers=headers
         )
         return response
+
+    def delete_passwords(self):
+        token = self.get_bearer_token()
+        headers = {
+            f"Authorization": f"Bearer {token}",
+        }
+        response = requests.post(
+            f"{self.url}/clear_passwords/", headers=headers
+        )
+        return response
+
+    def create_passwords(self, amount: int):
+        token = self.get_bearer_token()
+        headers = {
+            f"Authorization": f"Bearer {token}",
+        }
+        response = requests.post(
+            f"{self.url}/create_passwords/", headers=headers, params={"amount": amount }
+        )
+        return response
+
+    def get_passwords(self):
+        token = self.get_bearer_token()
+        headers = {
+            f"Authorization": f"Bearer {token}",
+        }
+        response = requests.get(
+            f"{self.url}/passwords_mint/", headers=headers
+        )
+        return response

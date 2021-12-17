@@ -3,7 +3,6 @@ import asyncio
 import dataclasses
 from etherscan import Etherscan
 from web3_listener.mint_poster import ArchiveMint, MintPoster
-import pdb
 
 
 @dataclasses.dataclass
@@ -39,7 +38,6 @@ class Web3ContractListener:
     async def log_loop(self, event_filter, poll_interval):
         while True:
             for event in event_filter.get_new_entries():
-                print(event)
                 self.send_mint_event(event)
             await asyncio.sleep(poll_interval)
 
