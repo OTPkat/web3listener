@@ -15,7 +15,7 @@ if __name__ == "__main__":
     #ETHERSCAN_TOKEN = get_secrets_from_string(os.environ["SECRET_ETHERSCAN"])
     ETHERSCAN_TOKEN = get_secrets_from_string("projects/148433842428/secrets/etherscan-listener/versions/1")
 
-    contract_address = "0xbdcc0E97E19BA2CFc96A16c5A2618912D2b78300"
+    contract_address = "0xFC5F3D1Cd0710702FB6D461b8718adB947c88388"
 
     contract_listener = Web3ContractListener(
         eth_url=ETH_URL,
