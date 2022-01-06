@@ -8,10 +8,10 @@ if __name__ == "__main__":
     ETH_URL = get_secrets_from_string("projects/148433842428/secrets/infura-listener/versions/1")
     ETHERSCAN_TOKEN = get_secrets_from_string("projects/148433842428/secrets/etherscan-listener/versions/1")
 
-    ETH_URL = f"https://rinkeby.infura.io/v3/{ETH_URL}"
-    # ETH_URL = f"https://mainnet.infura.io/v3/{ETH_URL}"
+    # ETH_URL = f"https://rinkeby.infura.io/v3/{ETH_URL}"
+    ETH_URL = f"https://mainnet.infura.io/v3/{ETH_URL}"
 
-    contract_address = "0xb4d9d17E4507997ED50E60442D659e4ae4a9122E"
+    contract_address = "0xb94937Bf80b9ad5F7144cfc53124946cDA3616ED"
 
     contract_listener = Web3ContractListener(
         eth_url=ETH_URL,
