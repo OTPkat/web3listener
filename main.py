@@ -11,7 +11,7 @@ if __name__ == "__main__":
     ETH_URL = f"https://rinkeby.infura.io/v3/{ETH_URL}"
     # ETH_URL = f"https://mainnet.infura.io/v3/{ETH_URL}"
 
-    contract_address = "0x7eC1C71461Fd1BA75B00864e3fc2cDAda12e48a8"
+    contract_address = "0xb4d9d17E4507997ED50E60442D659e4ae4a9122E"
 
     contract_listener = Web3ContractListener(
         eth_url=ETH_URL,
